@@ -78,8 +78,6 @@ xterm*|rxvt*)
 esac
 
 ############################### ALIASES #############################################################################
-# my attempt to enable aliases in ranger
-#shopt -s expand_aliases
 # enable color support of ls and also add ha    aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -104,11 +102,13 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# my aliases
+# convenience
 alias c='clear'
+alias sudo='sudo '
 
 # ranger
 alias gorg='x-terminal-emulator -e ranger'
+# script in usr/local/bin for use from within ranger
 
 # rg start or restore ranger
 rg() {
@@ -119,6 +119,26 @@ rg() {
         exit
     fi
 }
+# script in usr/local/bin for use from within ranger
+
+# syncthing push/pull
+export SYNCTHINGPULL="$HOME/PCpull"
+export SYNCTHINGPUSH="$HOME/PCpush"
+
+# push
+# pull
+# script in usr/local/bin for use from within ranger
+# pushes selected files/folders to the syncthing push folder, utilises mv with no flags.
+# pulls everything from the syncthing pull folder to the given directory, utilises mv with -i flag
+
+# dotfile management
+# bare git repository: ~/.cfg will contain the git versioning of dotfiles in their rightful place in $HOME
+# whenever commiting, branching, etc your dotfiles remember to use the config alias instead of git
+# e.g.
+# $ config status
+# instead of 
+# $ git status
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 ########################################################################################################################
 
