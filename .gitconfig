@@ -1,0 +1,31 @@
+[alias]
+	a = add
+	b = branch
+	bl = branch --list
+	ch = checkout
+	cb = checkout -b
+	cd = checkout develop
+	cp = cherry-pick
+	c = commit
+	ca = commit --amend
+	d = diff
+	ds = diff --staged
+	# discard changes
+	dc = restore
+	dcs = restore --changed
+	lg = log
+	m = merge
+	pl = pull
+	ps = push
+	rb = rebase
+	rf = reflog
+	rs = reset
+	rv = revert
+	s = status
+	sh = stash
+	sp = stash pop
+	sw = switch
+	undo = reset HEAD@{1}
+
+[push]
+	autoSetupRemote = true
